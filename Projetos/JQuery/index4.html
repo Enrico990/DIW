@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    <title>Document</title>
+    <script>
+         $(document).ready(function(){
+            $("#imagens > img").click(function(){
+                $("#imagens > img").removeClass("selecionada");
+                $(this).addClass("selecionada");
+            })
+         });
+    </script>
+    <style>         
+        main  {padding: 100px 300px;}
+        img
+        {
+            border: thick solid black;
+        }
+        .selecionada {
+            border-color: red;
+        }
+    </style> 
+</head>
+<body>
+    <header>
+        <ul>
+            <li><a href="Index1.html">1</a></li>
+            <li><a href="Index2.html">2</a></li>
+            <li><a href="index3.html">3</a></li>
+            <li><a href="index4.html">4</a></li>
+        </ul>
+    </header>
+    <main>
+        <h1>Titulo</h1>
+        <div id="imagens">
+            <img id="img1" src="https://picsum.photos/200"/>
+            <img id="img2" src="https://picsum.photos/200?=1"/>
+            <img id="img3" src="https://picsum.photos/200?=2"/>
+        </div>
+        <p><button id="btn">Clique aqui.</button></p>
+    </main>
+</body>
+</html>

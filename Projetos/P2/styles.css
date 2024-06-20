@@ -1,0 +1,15 @@
+body
+{
+    font-size: 60px;
+    font-family: 'Times New Roman';
+    color: rgb(235, 28, 124);
+}
+p,h1
+{
+    background-color: rgb(43, 43, 43)
+}
+
+.destaque
+{
+    color: blue;
+}

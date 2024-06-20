@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora simples com JavaScript</title>
+    <script>
+        var operacao = prompt("escolha entre: 1-soma, 2-subtração, 3-multiplicação, 4-divisão");
+        op = parseInt(operacao);
+        let resultado = 0;
+        let x = [];
+        x[0] = parseInt(prompt("Valor 1: "));
+        x[1] = parseInt(prompt("Valor 2: "));
+        if (op == 1) // Soma
+        {
+            resultado = x[0] + x[1];
+        }
+        else if (op == 2) // Subtracao
+        {
+            resultado = x[0] - x[1];
+        }
+        else if (op == 3) // Multiplicacao
+        {
+            resultado = x[0] * x[1];
+        }
+        else if (op == 4) // Divisao
+        {
+            resultado = x[0] / x[1];
+        }
+        prompt("resultado: " + resultado);
+    </script>
+</head>
+
+<body>
+    <header>
+        <ul>
+            <li><a href="Index.html">1</a></li>
+            <li><a href="Index2.html">2</a></li>
+            <li><a href="Index3.html">3</a></li>
+            <li><a href="Index4.html">4</a></li>
+            <li><a href="index5.html">5</a></li>
+            <li><a href="index6.html">6</a></li>
+        </ul>
+        </header>
+    <h1>Calculadora simples com JavaScript</h1>
+
+</body>
+
+</html>

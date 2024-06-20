@@ -1,0 +1,57 @@
+/*Comportamento normal desktop*/
+
+body
+{
+    margin: 0px;
+    padding: 0px;
+}
+
+.cabecalho
+{
+    background: green;
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+.conteudo
+{
+    padding: 20px;
+}
+
+/* Breakpoints para resolucoes especificas */
+
+/* Breakpoint 600 */
+@media screen and (max-width:600px)
+{
+    .cabecalho
+    {
+        background: red;
+        min-height: 50px;
+    }
+
+    .conteudo
+    {
+        font-size: 120%;
+    }
+}
+
+/* Breakpoint 1024 */
+@media screen and (min-width:601px) and (max-width:1024px)
+{
+    .cabecalho
+    {
+        background: blue;
+        min-height: 100px;
+    }
+}
+
+/* Breakpoint 1200 */
+@media screen and (min-width:1025px) and (max-width:1200px)
+{
+    .cabecalho
+    {
+        background: hotpink;
+        min-height: 100px;
+    }
+}

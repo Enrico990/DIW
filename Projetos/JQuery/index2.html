@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#caixa").html("<p>asd</p>");
+            $("#btn").click(function(){
+                $("#caixa").toggleClass("gg");
+            })
+        })
+    </script>
+    <style>
+        .gg {
+            width: 100px;
+            height: 100px;
+            border: thin solid black;
+            background-color: #ddd;
+            font-family: monospace;
+        }
+        main {padding: 100px 300px;}
+        div p {padding: 24px 35px;}
+    </style> 
+</head>
+
+<body>
+    <header>
+        <ul>
+            <li><a href="Index1.html">1</a></li>
+            <li><a href="Index2.html">2</a></li>
+            <li><a href="index3.html">3</a></li>
+            <li><a href="index4.html">4</a></li>
+        </ul>
+    </header>
+    <main>
+        <div id="caixa"><p>asd</p></div>
+        <p>
+            <button id="btn">Classe</button>
+        </p>
+    </main>
+</body>
+
+</html>

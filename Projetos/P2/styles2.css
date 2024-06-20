@@ -1,0 +1,28 @@
+/* 853355_DIW */
+
+/* Dados para o CORPO */
+body
+{
+    background-color: white;
+    color: black;
+    font-family: Arial;
+    font-size: 30px;
+}
+
+/* Dados para GRUPO h1 */
+h1
+{
+    color: blue;
+}
+
+/* Tamanho da fonte para GRUPO tit_1 */
+#tit_1
+{
+    font-size: 100px;
+}
+
+/* Fonte para GRUPO noticias */
+.texto 
+{
+    font-family: 'Times New Roman';
+}

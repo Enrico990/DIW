@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    <title>Document</title>
+    <script>
+        $(document).ready(function(){
+           let lista = $(".lista")
+           .add("#titulo")
+            .map(function() {
+                return $(this).prop("id");
+            }).get();   
+            console.log(lista);
+        });
+    </script>
+    <style>        
+        .marcado{background-color: #ffaaaa;}
+    </style> 
+</head>
+
+<body>
+    <header>
+    <ul>
+        <li><a href="Index1.html">1</a></li>
+        <li><a href="Index2.html">2</a></li>
+        <li><a href="index3.html">3</a></li>
+        <li><a href="index4.html">4</a></li>
+    </ul>
+    </header>
+    <main>
+        <h1 id="titulo">Titulo</h1>
+        <ul>
+            <li class="lista teste" id="l1">1</li>
+            <li class="lista" id="l2"><strong>2</strong></li>
+            <li class="lista teste" id="l3">3</li>
+            <li class="lista" id="l4"><strong>4</strong></li>
+            <li class="lista" id="l5"><strong>5</strong></li>
+        </ul>
+    </main>
+</body>
+
+</html>

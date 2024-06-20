@@ -1,0 +1,17 @@
+{
+    "colegas": [
+        {
+            "nome": "nome1",
+            "id": 1
+        },
+        {
+            "nome": "nome2",
+            "id": 2
+        }
+    ],
+    "conteudo": [
+        {
+            
+        }
+    ]
+}

@@ -1,0 +1,319 @@
+:root
+{
+    --bgcolor: rgb(24, 25, 26);
+    --sitecolor: rgb(3, 120, 236);
+}
+
+html
+{
+    background-color: var(--bgcolor);
+}
+
+body, ul, li, p
+{   
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    margin: 0px;
+    padding: 0px;
+}
+
+nav
+{
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+    padding: 10px 30px;
+    background-color: var(--bgcolor);
+}
+
+nav > a
+{
+    color: white;
+    font-size: 30px;
+    text-decoration: none;
+    align-content: center;
+    background-color: rgba(52, 53, 53, 0.4);
+    padding: 10px;
+    border-radius: 7px;
+    font-weight: bold;
+    text-shadow: black 3px 0px 0px;
+}
+
+.menu 
+{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.menu li
+{
+    align-content: end;
+    list-style: none;
+    margin: 15px;
+}
+
+.menu li a
+{
+    color: white;
+    text-decoration: none;
+}
+
+main
+{
+    padding: 30px;
+    background-color: var(--bgcolor);
+}
+
+main h1
+{
+    font-size: 2rem;
+    color: white;   
+    border-bottom: 3px solid white;
+    padding: 5px 0px;
+}
+
+main ul li
+{
+    list-style: none;
+}
+
+.Perfil:first-child div
+{
+    display: grid;
+    grid-template-columns: 1fr 9fr;
+    margin: 30px 10px;
+}
+
+.Perfil img
+{
+    align-self: top;
+    border-radius: 10px;
+    grid-row: 1/5;
+    grid-column: 1;
+}
+
+.Perfil h4
+{
+    color: var(--sitecolor);
+    padding: 0px 30px;
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.Perfil p
+{
+    color: white;
+    grid-row: 2;
+    grid-column: 2;
+    padding: 0px 30px;
+}
+
+.Perfil ul
+{
+    grid-column: 2;
+    grid-row: 3;
+    display: block;
+    color: white;
+    align-self: top;
+    font-size: 12px;
+}
+
+.Perfil ul li
+{
+    padding: 3px 0px;
+}
+
+.Social
+{
+    display: flex  !important;
+    grid-column: 2 !important;
+    grid-row: 4    !important;
+    justify-content: left;
+}
+
+.Social li
+{
+    margin: 0px 10px;
+}
+
+.fa
+{
+    margin: 0px 0px;
+    grid-column: 2;
+    grid-row: 4;
+    display: block;
+    height: 40px;
+    width: 40px;
+    align-content: center;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10%;
+}
+
+.fa:hover
+{
+    opacity: 0.7;
+}
+
+.fa-facebook
+{
+    color: white;
+    background-color: rgb(58, 87, 151);
+}
+
+.fa-linkedin
+{
+    color: white;
+    background-color: rgb(0, 123, 181);
+}
+
+.fa-twitter
+{
+    color: white;
+    background-color: rgb(85, 172, 238);;
+}
+
+.Perfil ul span
+{
+    padding: 5px;
+    font-size: 16px;
+}
+
+.repositorios div
+{
+    padding: 30px 10px;
+}
+
+.card
+{
+    width: 18rem;
+    margin: 10px;
+}
+
+.card-link
+{
+    padding: 10px 15px;
+    border-radius: 7px;
+    text-decoration: none;
+    color: white;
+    background-color: var(--sitecolor);
+}
+
+.SContent div
+{
+    padding: 30px 10px;
+}
+
+.Colegas div
+{
+    padding: 30px 150px;
+}
+
+.Colegas p
+{
+    padding: 0px 30px;
+    color: var(--sitecolor);
+}
+
+footer
+{
+    display: block;
+    padding: 30px;
+    background-color: var(--bgcolor);
+}
+
+footer h1
+{
+    display: block;
+    font-size: 2rem;
+    color: white;   
+    border-bottom: 3px solid white;
+    padding: 5px 0px;
+}
+
+footer > div
+{
+    display: block;
+    color: white;
+    padding: 10px;
+}
+
+.Sobre
+{
+    margin: 15px;
+}
+
+.Repositorio 
+{
+    display: block;
+    padding: 0px;
+}
+
+.Repositorio div
+{
+    color: white;
+    margin: 30px 10px;
+}
+
+.Repositorio a
+{
+    color: white;
+    text-decoration: none;
+}
+
+.buttom
+{
+    display: inline-flex;
+    flex-wrap: wrap;
+    padding: 5px 20px;
+    margin: 20px 10px;
+    background-color: var(--sitecolor);
+    border-radius: 12px;
+}
+
+.buttom:hover
+{
+    opacity: 0.7;
+}
+
+.title
+{
+    color: var(--sitecolor) !important;
+}
+
+@media screen and (max-width:800px) 
+{
+    
+    
+}
+
+@media screen and  (max-width:767px)
+{
+    .Perfil:first-child div
+    {
+        display: block;
+    }
+
+    .Perfil h4, .Perfil p, .Perfil ul
+    {
+        padding: 0px;
+        margin: 15px 0px;
+    }
+
+    .repositorios div
+    {
+        padding: 30px 50px;
+    }
+
+    .card
+    {
+        width: 25rem;
+        margin: 10px;
+    }
+
+    .Repositorio span a
+    {
+        margin:10px;
+    }
+  
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var n = parseInt($("#contador").text());
+            $("#mais").click(function(){
+                n++;
+                $("#menos").prop('disabled', false);
+                $("#contador").text(n);
+            })
+            function cl (){
+                n--;
+                if (n <= 0)
+                {
+                    $("#menos").prop('disabled', true);
+                }
+                $("#contador").text(n);
+            }
+
+            $("#menos").click(cl)
+        })
+    </script> 
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <ul>
+            <li><a href="Index1.html">1</a></li>
+            <li><a href="Index2.html">2</a></li>
+            <li><a href="index3.html">3</a></li>
+            <li><a href="index4.html">4</a></li>
+        </ul>
+    </header>
+    <main>
+        <button id="menos">-1</button>
+        <button id="mais">+1</button>
+        <p>Contador: <span id="contador">0</span></p>
+    </main>
+</body>
+</html>
+<style>
+    main {padding: 100px 300px;}
+</style>

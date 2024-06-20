@@ -1,0 +1,140 @@
+
+/* Formatacao da Estrutura */
+
+/* Todos os elementos */
+* 
+{
+    margin:  0;
+    padding: 0;
+}
+
+body
+{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header
+{
+    background-color: aqua;
+    height: 150px;
+    padding: 20px;
+    background: url(spiderman.png) no-repeat ;
+    display: flex-end;
+    align-items: center;
+}
+
+main 
+{
+    background-color: whitesmoke;
+    width: 70%;
+    float: left;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h1
+{
+    display: none;
+}
+
+aside
+{
+    background-color: rgb(255, 158, 198);
+    width: 30%;
+    float: left;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+footer
+{
+    background-color: rgb(116, 240, 105);
+    clear: both;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Componente Menu Principal */
+.caixa-menuprincipal
+{
+    float: right;
+    margin: auto 0;
+}
+
+.caixa-menuprincipal ul
+{
+    list-style-type: none;
+}
+
+.caixa-menuprincipal ul li
+{
+    display: inline;
+}
+
+.caixa-menuprincipal ul li a
+{
+    text-decoration:  none;
+    color: black;
+    background-color: aqua;
+    font-weight: bold;
+    padding: 10px;
+
+}
+
+.caixa-menuprincipal ul li a:hover
+{
+    background-color: rgb(116, 240, 105);
+}
+
+/* Componente Postagem */
+.caixa-post
+{
+    margin-bottom: 40px;
+    clear: both;
+}
+
+.caixa-post img
+{
+    display: block;
+    float: left;
+    width: 100px;
+    margin-right: 10px;
+}
+
+.caixa-post h3
+{
+    font-size: 100%;
+    color: rgb(255, 158, 198);
+}
+
+.caixa-post h4
+{
+    font-size: 70%;
+    color: rgb(116, 240, 105);
+}
+
+.caixa-post h4 span:nth-child(3)
+{
+    background-color: aqua;
+    color: black;
+    padding: 2px;  
+    border-radius: 7px;
+}
+.caixa-post p
+{
+    font-size: 100%;
+}   
+
+.caixa-categoria ul
+{
+    padding-top: 10px;
+    list-style-type: none;
+}
+
+.caixa-categoria ul li a
+{
+    text-decoration: none;
+    text-shadow: 1px 1px 3px black;
+    font-weight: bolder;
+    color: rgb(116, 240, 105);
+}
