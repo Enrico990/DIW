@@ -8,6 +8,18 @@ p, h1, li, i
     color: white;
 }
 
+a
+{
+    color: var(--maincolor);
+    text-decoration: none;
+}
+
+* button:hover
+{
+    cursor: pointer;
+    box-shadow: none;
+}
+
 body
 {
     background-color: #222;
@@ -19,6 +31,8 @@ body
 
 header
 {
+    z-index: 3;
+    width: calc(100vw - 80px);
     position: fixed;
     right: 0;
     left: 0;   
@@ -62,6 +76,7 @@ main
 main h1.titulo-da-seção
 {
     font-size: 40px;
+    padding-bottom: 10px;
     border-bottom: 3px solid white;
 }
 
@@ -69,6 +84,7 @@ main section#perfil
 {
     padding: 12px 0px;
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
 }
 
@@ -76,7 +92,7 @@ section#perfil-info p#nome
 {
     font-size: 26px;
     color: var(--maincolor);
-    line-height: 10px;
+    padding-top: 0px;
 }
 
 section#perfil-info p.bio
@@ -86,6 +102,8 @@ section#perfil-info p.bio
 
 section#perfil img
 {
+    box-shadow: 1px 1px 6px #000;
+    border: 2px solid #1f1f1f;
     border-radius: 8px;
     width: 250px;
     height: 220px;
@@ -103,4 +121,239 @@ section#perfil span.icons i
     
     color: var(--maincolor);
     font-size: 40px;
+}
+
+section#repositorios
+{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px 10px;
+}
+
+section#repositorios div.cards
+{
+    justify-self: center;
+    position: relative;
+    display: block;
+    overflow-y: auto;
+    width: 20vw;
+    height: 25vh;
+    padding: 0px 20px;
+    border-radius: 10px;
+    background-color: #333;
+    box-shadow: 1px 1px 6px #000;
+    border: 2px solid #1f1f1f;
+}
+
+div.cards p.titulo
+{
+    text-align: start;
+    word-break: break-word;
+    height: 30px;
+    font-size: 26px;
+    color: var(--maincolor);
+}
+
+div.cards button
+{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 20px;
+    margin: 20px;
+    padding: 5px 10px;
+    color: white;
+    background-color: var(--maincolor);
+    border-radius: 8px;
+    box-shadow: 2px 2px 6px 3px #0f0f0f;
+    border: 1px solid rgb(from var(--maincolor) r g b / 0.1);
+}
+
+div.cards button:hover
+{
+    cursor: pointer;
+    box-shadow: none;
+}
+
+
+div.cards button a
+{
+    color: white;
+}
+
+/* media queries de largura */
+
+@media screen and (max-width:1600px) 
+{
+
+    section#repositorios
+    {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    section#repositorios div.cards
+    {
+        width: 20vw;
+        height: 20vh
+    }
+}
+
+@media screen and (max-width:1100px) 
+{
+
+    section#repositorios
+    {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    section#repositorios div.cards
+    {
+        width: 30vw;
+        height: 20vh
+    }
+}
+
+@media screen and (max-width:850px) 
+{
+
+    section#repositorios
+    {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    section#repositorios div.cards
+    {
+        width: 50vw;
+        height: 20vh
+    }
+}
+
+@media screen and (max-width:700px)
+{
+    header
+    {
+        position: static;
+    }
+
+    main
+    {
+        padding: 24px 40px;
+    }
+}
+
+@media screen and (max-width:692px)
+{
+    main section#perfil
+    {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width:500px)
+{
+    main h1.titulo-da-seção
+    {
+        font-size: 28px;
+    }
+
+    div.cards p.titulo
+    {
+        height: 50px;
+    }
+
+    section#repositorios div.cards
+    {
+        width: 50vw;
+        height: 25vh;
+    }
+}
+
+@media screen and (max-width:330px)
+{
+    header button#home-btn
+    {
+        font-size: 22px;
+    }
+}
+
+/* media queries de altura */
+
+
+@media screen and (min-height:1200px) and (min-width:1000px) and (max-height: 1400px) and (max-width:1400px)
+{
+    p, button
+    {
+        font-size: 34px !important;
+    }
+
+    h1
+    {
+        font-size: 40px !important;
+    }
+
+    section#repositorios div.cards
+    {
+        height: 25vh;
+    }
+}
+
+@media screen and (min-height:950px)
+{
+    p, button
+    {
+        font-size: 24px;
+    }
+
+    h1
+    {
+        font-size: 26px;
+    }
+
+    section#repositorios div.cards
+    {
+        height: 25vh;
+    }
+}
+
+@media screen and (max-width:1500px) and (max-height:900px)
+{
+    section#repositorios div.cards
+    {
+        height: 25vh;
+    }
+}
+
+@media screen and (max-width:1500px) and (max-height:900px)
+{
+    section#repositorios div.cards
+    {
+        height: 30vh;
+    }
+}
+
+@media screen and (max-width:700px) and (max-height:750px)
+{
+    section#repositorios div.cards
+    {
+        width: 50vw;
+        height: 35vh;
+    }
+}
+
+@media screen and (max-height:600px)
+{
+
+    section#repositorios div.cards
+    {
+        height: 45vh;
+    }
+}
+
+@media screen and (max-height:420px)
+{
+
+    section#repositorios div.cards
+    {
+        height: 60vh;
+    }
 }
