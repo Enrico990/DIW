@@ -9,23 +9,29 @@ const ProfileLink = document.querySelector('a#gitlink');
 const PublicReposH1 = document.querySelector('h1#repos');
 const ReposCards = document.querySelector('#repositorios');
 
-
+var LocalETag = '';
 var ReposNum = 0;
+var EmailUrl = '';
 
 // Ler e mostrar dados do usuario da API do GitHub
 function GitUserData (event)
 {  
     let data = JSON.parse(event.target.response);
-    ProfileImage.src = data.avatar_url;
-    ProfileName.innerHTML = data.name;
-    ProfileBio.innerHTML = data.bio;
-    ProfileLocation.innerHTML = "<strong>Localização: </strong>" + data.location;
-    ProfileLink.innerHTML = data.html_url;
-    ProfileLink.href = data.html_url;
-    ReposNum = data.public_repos;
-    PublicReposH1.innerHTML = `Repositórios ` + `( ${ReposNum} )`;
+    if (data.name != undefined)
+    {
+        ProfileImage.src = data.avatar_url;
+        ProfileName.innerHTML = data.name;
+        ProfileBio.innerHTML = data.bio;
+        ProfileLocation.innerHTML = "<strong>Localização: </strong>" + data.location;
+        ProfileLink.innerHTML = data.html_url;
+        ProfileLink.href = data.html_url;
+        ReposNum = data.public_repos;
+        PublicReposH1.innerHTML = `Repositórios ` + `( ${ReposNum} )`;
+        EmailUrl = data.email;
+    }
 }
 
+// Ler e mostrar dados dos repositorios do usuario da API do GitHub
 function GitReposData (event)
 {
     let data = JSON.parse(event.target.response);
@@ -39,18 +45,26 @@ function GitReposData (event)
     }
 }
 
-// Requecicao de informacoes do usuario da API do GitHub
-let UserXHR = new XMLHttpRequest();
-UserXHR.onload = GitUserData;
-UserXHR.open('GET', 'https://api.github.com/users/davipuddo');
-UserXHR.send();
+// Protecao contra o limite de requisicoes;
+if (localStorage.getItem('LocalETag'))
+{
+    LocalETag = JSON.parse(localStorage.getItem('LocalETag'));
+}
 
-let ReposXHR = new XMLHttpRequest();
-ReposXHR.onload = GitReposData;
-ReposXHR.open('GET', 'https://api.github.com/users/davipuddo/repos');
-ReposXHR.send();
-
-
+/* if (ETag == '' || ETag !== LocalETag)
+{
+    // Requecicao de informacoes do usuario da API do GitHub
+    let UserXHR = new XMLHttpRequest();
+    UserXHR.onload = GitUserData;
+    UserXHR.open('GET', 'https://api.github.com/users/davipuddo?per_page=20');
+    UserXHR.send();
+    
+    // Requecicao de informacoes dos repositorios do usuario da API do GitHub
+    let ReposXHR = new XMLHttpRequest();
+    ReposXHR.onload = GitReposData;
+    ReposXHR.open('GET', 'https://api.github.com/users/davipuddo/repos?per_page=20');
+    ReposXHR.send();
+} */
 
 // Media querie
 var interval = setInterval(function(){
@@ -106,3 +120,16 @@ Section3.addEventListener('click', function(){
     ScrollHeader();
 })
 
+// Botoes perfil
+const email = document.querySelector('#email');
+
+email.addEventListener('click', function(){
+    window.location.href = EmailUrl;
+})
+
+
+// Json Server
+
+const jsonServer = require('json-server')
+const server = jsonServer.create();
+const router = jsonServer.router('../db/db.json');

@@ -90,9 +90,9 @@ main section#perfil
 
 section#perfil-info p#nome
 {
+    line-height: 0px;
     font-size: 26px;
     color: var(--maincolor);
-    padding-top: 0px;
 }
 
 section#perfil-info p.bio
@@ -106,7 +106,7 @@ section#perfil img
     border: 2px solid #1f1f1f;
     border-radius: 8px;
     width: 250px;
-    height: 220px;
+    height: 250px;
 }
 
 section#perfil span.icons
@@ -118,9 +118,13 @@ section#perfil span.icons
 
 section#perfil span.icons i
 {
-    
     color: var(--maincolor);
     font-size: 40px;
+}
+
+section#perfil span.icons i:hover
+{
+    cursor: pointer;
 }
 
 section#repositorios
@@ -165,14 +169,15 @@ div.cards button
     color: white;
     background-color: var(--maincolor);
     border-radius: 8px;
-    box-shadow: 2px 2px 6px 3px #0f0f0f;
-    border: 1px solid rgb(from var(--maincolor) r g b / 0.1);
+    box-shadow: 2px 2px 2px 3px #111;
+    border: 1px solid rgb(from var(--maincolor) r g b / 0.7);
 }
 
 div.cards button:hover
 {
     cursor: pointer;
     box-shadow: none;
+    border: none;
 }
 
 
@@ -241,7 +246,7 @@ div.cards button a
     }
 }
 
-@media screen and (max-width:692px)
+@media screen and (max-width:867px)
 {
     main section#perfil
     {
