@@ -14,10 +14,9 @@ var ReposNum = 0;
 var EmailUrl = '';
 
 // Ler e mostrar dados do usuario da API do GitHub
-function GitUserData (event)
+function ShowGitUserData (data)
 {  
-    let data = JSON.parse(event.target.response);
-    if (data.name != undefined)
+    if (data != undefined)
     {
         ProfileImage.src = data.avatar_url;
         ProfileName.innerHTML = data.name;
@@ -32,39 +31,87 @@ function GitUserData (event)
 }
 
 // Ler e mostrar dados dos repositorios do usuario da API do GitHub
-function GitReposData (event)
+function ShowGitReposData (data)
 {
-    let data = JSON.parse(event.target.response);
-    for (let i = 0; i < ReposNum; i++)
+    if (data != undefined)
     {
-        ReposCards.innerHTML += `<div class="cards">
-                                    <p class="titulo">${data[i].name}</p>
-                                    <p class="desctricao">${data[i].description}</p>
-                                    <button><a href="${data[i].html_url}">Visitar</a></button>
-                                 </div>`
+        for (let i = 0; i < ReposNum; i++)
+        {
+            ReposCards.innerHTML += `<div class="cards">
+                                        <p class="titulo">${data[i].name}</p>
+                                        <p class="desctricao">${data[i].description}</p>
+                                        <button><a href="${data[i].html_url}">Visitar</a></button>
+                                     </div>`
+        }
     }
 }
 
-// Protecao contra o limite de requisicoes;
-if (localStorage.getItem('LocalETag'))
+// Variaveis para dados da API do Git
+var UserData = {};
+var ReposData = {};
+var LastUpdate = 0;
+
+// Ler dados do local storage
+if (localStorage.getItem('LocalGit'))
 {
-    LocalETag = JSON.parse(localStorage.getItem('LocalETag'));
+    let GitData = JSON.parse(localStorage.getItem('LocalGit'));
+    if (GitData.UserData != undefined)
+    {
+        UserData  = GitData.UserData;
+        ReposData = GitData.ReposData;
+    
+        ShowGitUserData (UserData);
+        ShowGitReposData(ReposData);
+    }
+    if (GitData.UpdatedAt != undefined)
+    {
+        // Requisitar novos dados se a ultima atualizacao foi a mais de 5 minutos
+        LastUpdate = GitData.UpdatedAt;
+        if ((LastUpdate + 300) <= parseInt((Date.now()/1000)))
+        {
+            RequestUserGitApi();
+            RequestRepoGitApi();
+            SaveLocalGit();
+        }
+    }
 }
 
-/* if (ETag == '' || ETag !== LocalETag)
+// Requisicao de informacoes do usuario da API do GitHub
+function RequestUserGitApi()
 {
-    // Requecicao de informacoes do usuario da API do GitHub
     let UserXHR = new XMLHttpRequest();
-    UserXHR.onload = GitUserData;
+    UserXHR.onload = function(event) {
+        UserData = JSON.parse(event.target.response);
+        SaveLocalGit ()
+    };
     UserXHR.open('GET', 'https://api.github.com/users/davipuddo?per_page=20');
     UserXHR.send();
-    
-    // Requecicao de informacoes dos repositorios do usuario da API do GitHub
+}
+
+// Requisicao de informacoes dos repositorios do usuario da API do GitHub
+function RequestRepoGitApi ()
+{
     let ReposXHR = new XMLHttpRequest();
-    ReposXHR.onload = GitReposData;
+    ReposXHR.onload = function (event) {
+        ReposData = JSON.parse(event.target.response);
+        SaveLocalGit ()
+    }
     ReposXHR.open('GET', 'https://api.github.com/users/davipuddo/repos?per_page=20');
     ReposXHR.send();
-} */
+}
+
+// Salvar dados no local storage
+function SaveLocalGit () {
+    let obj = {
+        UserData,
+        ReposData,
+        UpdatedAt: parseInt((Date.now()/1000))
+    }
+    if (JSON.stringify(UserData) !== '{}' && JSON.stringify(ReposData) !== '{}')
+    {
+        localStorage.setItem('LocalGit', JSON.stringify(obj));
+    }
+}
 
 // Media querie
 var interval = setInterval(function(){
@@ -87,7 +134,6 @@ var interval = setInterval(function(){
         }
     }
 }, 20)
-
 
 // Botoes do Header
 const HeaderHome = document.querySelector('#home-btn');
@@ -126,10 +172,3 @@ const email = document.querySelector('#email');
 email.addEventListener('click', function(){
     window.location.href = EmailUrl;
 })
-
-
-// Json Server
-
-const jsonServer = require('json-server')
-const server = jsonServer.create();
-const router = jsonServer.router('../db/db.json');
