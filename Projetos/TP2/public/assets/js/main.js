@@ -39,7 +39,7 @@ function ShowGitReposData (data)
         {
             ReposCards.innerHTML += `<div class="cards">
                                         <p class="titulo">${data[i].name}</p>
-                                        <p class="desctricao">${data[i].description}</p>
+                                        <p class="descricao">${data[i].description}</p>
                                         <button><a href="${data[i].html_url}">Visitar</a></button>
                                      </div>`
         }
@@ -51,31 +51,6 @@ var UserData = {};
 var ReposData = {};
 var LastUpdate = 0;
 
-// Ler dados do local storage
-if (localStorage.getItem('LocalGit'))
-{
-    let GitData = JSON.parse(localStorage.getItem('LocalGit'));
-    if (GitData.UserData != undefined)
-    {
-        UserData  = GitData.UserData;
-        ReposData = GitData.ReposData;
-    
-        ShowGitUserData (UserData);
-        ShowGitReposData(ReposData);
-    }
-    if (GitData.UpdatedAt != undefined)
-    {
-        // Requisitar novos dados se a ultima atualizacao foi a mais de 5 minutos
-        LastUpdate = GitData.UpdatedAt;
-        if ((LastUpdate + 300) <= parseInt((Date.now()/1000)))
-        {
-            RequestUserGitApi();
-            RequestRepoGitApi();
-            SaveLocalGit();
-        }
-    }
-}
-
 // Requisicao de informacoes do usuario da API do GitHub
 function RequestUserGitApi()
 {
@@ -84,7 +59,7 @@ function RequestUserGitApi()
         UserData = JSON.parse(event.target.response);
         SaveLocalGit ()
     };
-    UserXHR.open('GET', 'https://api.github.com/users/davipuddo?per_page=20');
+    UserXHR.open('GET', 'https://api.github.com/users/davipuddo');
     UserXHR.send();
 }
 
@@ -96,7 +71,7 @@ function RequestRepoGitApi ()
         ReposData = JSON.parse(event.target.response);
         SaveLocalGit ()
     }
-    ReposXHR.open('GET', 'https://api.github.com/users/davipuddo/repos?per_page=20');
+    ReposXHR.open('GET', 'https://api.github.com/users/davipuddo/repos');
     ReposXHR.send();
 }
 
@@ -113,8 +88,55 @@ function SaveLocalGit () {
     }
 }
 
-// Media querie
-var interval = setInterval(function(){
+// Ler dados locais se existirem
+if (localStorage.getItem('LocalGit'))
+{
+    ReadLocalGit();
+}
+else
+{ 
+    // Requisitar dados da API do GitHub
+    RequestUserGitApi();
+    RequestRepoGitApi();
+    SaveLocalGit();     // Salva-los localmente
+    setTimeout(ReadLocalGit, 300);
+    ReadLocalGit();     // Ler dados locais
+}
+
+// Ler dados do local storage
+function ReadLocalGit ()
+{
+    if (localStorage.getItem('LocalGit'))
+    {
+        let GitData = JSON.parse(localStorage.getItem('LocalGit'));
+        if (GitData.UserData != undefined)
+        {
+            UserData  = GitData.UserData;
+            ReposData = GitData.ReposData;
+        
+            ShowGitUserData (UserData);
+            ShowGitReposData(ReposData);
+            console.log('Dados guardados');
+        }
+        if (GitData.UpdatedAt != undefined)
+        {
+            LastUpdate = GitData.UpdatedAt;
+        }
+    }
+}
+
+// Atualizar dados a cada 5 minutos
+setInterval(function(){
+    if ((LastUpdate + 300) <= parseInt((Date.now()/1000)))
+    {
+        RequestUserGitApi();
+        RequestRepoGitApi();
+        SaveLocalGit();
+    }
+}, 15000);
+
+// Media queries
+setInterval(function(){
 
     if (window.matchMedia('(max-width:625px)').matches)
     {
