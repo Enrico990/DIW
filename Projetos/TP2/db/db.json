@@ -4,19 +4,21 @@
     "colegas": [{
 
       "id":"1",
-      "nome":"nome-1",
-      "imagem":"..\\public\\Colega1.jpg"
+      "nome":"Antônio",
+      "imagem":"..\\public\\assets\\images\\Antonio.jpg",
+      "git":"https://github.com/AntonioDrumond"
     },
     {
       "id":"2",
-      "nome":"Jose Cota",
-      "imagem":"..\\public\\Jose.jpg"
+      "nome":"Jean",
+      "imagem":"..\\public\\assets\\images\\Jean.jpg",
+      "git":"https://github.com/JeanCarlos0112"
     },
     {
       "id":"3",
-      "nome":"Pedro Ferreira",
-      "imagem":"..\\public\\Pedro.jpg"
-    }
-  ]
+      "nome":"Pedro",
+      "imagem":"..\\public\\assets\\images\\Pedro.jpg",
+      "git":""
+    }]
   }
 }

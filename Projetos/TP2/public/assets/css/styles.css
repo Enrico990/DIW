@@ -134,6 +134,12 @@ section#perfil span.icons
     gap: 20px;
 }
 
+span.icons span
+{
+    display: flex;
+    gap: 10px;
+}
+
 section#perfil p#seguidores
 {
     color: var(--maincolor);
@@ -243,7 +249,7 @@ section#colegas span p
 section#colegas img
 {
     border-radius: 8px;
-    border: 3px solid #333;
+    border: 3px solid #aaa;
     height: 200px;
     width: 200px;
 }

@@ -205,9 +205,9 @@ JServer.onload = function(event){
     let data = JSON.parse(event.target.response).colegas;
     for (let i = 0; i < 3; i++)
     {
-        colegas.innerHTML += `<span>
-                                <img src="${data[i].imagem}" class="colega" id="${data[i].id}"></img>
-                                <p class="titulo">${data[i].nome}</p>
+        colegas.innerHTML += `<span id="colega-${data[i].id}">
+                                <img src="${data[i].imagem}" class="colega"></img>
+                                <a href="${data[i].git}"><p class="titulo">${data[i].nome}</p></a>
                               </span>`
     } 
 }
