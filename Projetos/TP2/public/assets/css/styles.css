@@ -1,3 +1,7 @@
+
+/* Definicoes gerais
+ * ============================================================
+*/
 :root
 {
     --maincolor: #57a1e6;
@@ -28,6 +32,10 @@ body
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
 }
+
+/* Header
+* ============================================================
+*/
 
 header
 {
@@ -67,6 +75,10 @@ header span#seções button
     margin: 5px;
 }
 
+/* Conteudo principal 
+ * ============================================================
+*/
+
 main
 {
     padding: 124px 40px;
@@ -79,6 +91,10 @@ main h1.titulo-da-seção
     padding-bottom: 10px;
     border-bottom: 3px solid white;
 }
+
+/* Perfil
+ * ============================================================
+*/
 
 main section#perfil
 {
@@ -128,6 +144,11 @@ section#perfil span.icons i:hover
     cursor: pointer;
 }
 
+/* Repositorios 
+ * ============================================================
+*/
+
+
 section#repositorios
 {
     display: grid;
@@ -152,6 +173,8 @@ section#repositorios div.cards
 
 div.cards p.titulo
 {
+    font-weight: bold;
+    text-shadow: 1px 1px 3px #000;
     text-align: start;
     word-break: break-word;
     height: 30px;
@@ -170,7 +193,7 @@ div.cards button
     color: white;
     background-color: var(--maincolor);
     border-radius: 8px;
-    box-shadow: 2px 2px 2px 3px #111;
+    box-shadow: 2px 2px 1px 3px #191919;
     border: 1px solid rgb(from var(--maincolor) r g b / 0.7);
 }
 
@@ -187,7 +210,9 @@ div.cards button a
     color: white;
 }
 
-/* media queries de largura */
+/* media queries
+ * ============================================================
+*/
 
 @media screen and (max-width:1600px) 
 {
@@ -281,9 +306,6 @@ div.cards button a
         font-size: 22px;
     }
 }
-
-/* media queries de altura */
-
 
 @media screen and (min-height:1200px) and (min-width:1000px) and (max-height: 1400px) and (max-width:1400px)
 {

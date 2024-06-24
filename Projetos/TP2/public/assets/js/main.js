@@ -35,6 +35,7 @@ function ShowGitReposData (data)
 {
     if (data != undefined)
     {
+        ReposCards.innerHTML = null;
         for (let i = 0; i < ReposNum; i++)
         {
             ReposCards.innerHTML += `<div class="cards">
@@ -57,7 +58,7 @@ function RequestUserGitApi()
     let UserXHR = new XMLHttpRequest();
     UserXHR.onload = function(event) {
         UserData = JSON.parse(event.target.response);
-        SaveLocalGit ()
+        SaveLocalGit ();
     };
     UserXHR.open('GET', 'https://api.github.com/users/davipuddo');
     UserXHR.send();
@@ -69,7 +70,7 @@ function RequestRepoGitApi ()
     let ReposXHR = new XMLHttpRequest();
     ReposXHR.onload = function (event) {
         ReposData = JSON.parse(event.target.response);
-        SaveLocalGit ()
+        SaveLocalGit ();
     }
     ReposXHR.open('GET', 'https://api.github.com/users/davipuddo/repos');
     ReposXHR.send();
@@ -116,7 +117,6 @@ function ReadLocalGit ()
         
             ShowGitUserData (UserData);
             ShowGitReposData(ReposData);
-            console.log('Dados guardados');
         }
         if (GitData.UpdatedAt != undefined)
         {
@@ -127,13 +127,14 @@ function ReadLocalGit ()
 
 // Atualizar dados a cada 5 minutos
 setInterval(function(){
-    if ((LastUpdate + 300) <= parseInt((Date.now()/1000)))
+    if ((LastUpdate+300) <= parseInt((Date.now()/1000)))
     {
         RequestUserGitApi();
         RequestRepoGitApi();
         SaveLocalGit();
+        ReadLocalGit()
     }
-}, 15000);
+}, 20000);
 
 // Media queries
 setInterval(function(){
