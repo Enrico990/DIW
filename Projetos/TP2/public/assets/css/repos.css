@@ -1,3 +1,8 @@
+
+/* Definicoes gerais
+ * ============================================================
+*/
+
 :root
 {
     --maincolor: #57a1e6;
@@ -6,6 +11,8 @@
 a#link
 {
     color: white !important;
+    font-size: 22px;
+    word-wrap: break-word;
 }
 
 section#stats
@@ -52,4 +59,37 @@ section#topicos span:hover
     filter: brightness(50%);
     box-shadow: none;
     cursor: pointer;
+}
+
+
+/* Media queries
+ * ============================================================
+*/
+
+@media screen and (max-width:800px)
+{
+    section#stats
+    {
+        float: initial;
+        padding-top: 50px;
+        display: grid;
+        row-gap: 50px;
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width:450px)
+{
+    p, h1, a
+    {
+        font-size: 18px !important;
+    }
+}
+
+@media screen and (max-width:450px)
+{
+    p, h1, a
+    {
+        font-size: 16px !important;
+    }
 }

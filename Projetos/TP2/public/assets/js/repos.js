@@ -156,3 +156,25 @@ function ShowReposData ()
     }
 }
 
+// Media queries
+setInterval(function(){
+
+    if (window.matchMedia('(max-width:625px)').matches)
+    {
+        document.querySelector('#home-btn').innerHTML = 'Davi';
+        
+        for (let i = 0; i < 3; i++)
+        {
+            document.querySelectorAll('#seções button')[i].innerHTML = i+1;
+        }
+    }
+    else
+    {
+        document.querySelector('#home-btn').innerHTML = 'Davi Puddo'
+        for (let i = 0; i < 3; i++)
+        {
+                document.querySelectorAll('#seções button')[i].innerHTML = `Seção ${i+1}`;
+        }
+    }
+}, 20)
+
