@@ -54,14 +54,6 @@ section#topicos span
     background-color: var(--maincolor);
 }
 
-section#topicos span:hover
-{
-    filter: brightness(50%);
-    box-shadow: none;
-    cursor: pointer;
-}
-
-
 /* Media queries
  * ============================================================
 */

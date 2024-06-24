@@ -204,7 +204,6 @@ email.addEventListener('click', function(){
 })
 
 // Json server
-// Colegas de trabalho
 const colegas = document.querySelector('#colegas');
 JServerData = {};
 
@@ -215,10 +214,14 @@ JServer.onload = function(event){
     SugestedImg.src = JServerData.carousel[0].imagem;
     SugestedImg.setAttribute('title', JServerData.carousel[0].nome);
 }
-JServer.onerror =  function () {console.log('Json server nao respondeu!')};
+JServer.onerror =  function () {
+    console.log('Json server nao respondeu!');
+    document.querySelector('div#content-page').innerHTML = null;
+};
 JServer.open("GET", "http://localhost:3000/Data");
 JServer.send();
 
+// Colegas de trabalho
 function ShowColegas ()
 {
     let data = JServerData.colegas;
