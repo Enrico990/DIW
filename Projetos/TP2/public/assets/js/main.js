@@ -8,6 +8,7 @@ const ProfileLocation = document.querySelector('p#location');
 const ProfileLink = document.querySelector('a#gitlink');
 const PublicReposH1 = document.querySelector('h1#repos');
 const ReposCards = document.querySelector('#repositorios');
+const Followers = document.querySelector('#seguidores');
 
 var LocalETag = '';
 var ReposNum = 0;
@@ -27,6 +28,7 @@ function ShowGitUserData (data)
         ReposNum = data.public_repos;
         PublicReposH1.innerHTML = `Repositórios ` + `( ${ReposNum} )`;
         EmailUrl = data.email;
+        Followers.innerHTML = data.followers;
     }
 }
 
@@ -195,3 +197,19 @@ const email = document.querySelector('#email');
 email.addEventListener('click', function(){
     window.location.href = EmailUrl;
 })
+
+// Colegas de trabalho
+const colegas = document.querySelector('#colegas');
+var JServer = new XMLHttpRequest();
+JServer.onload = function(event){
+    let data = JSON.parse(event.target.response).colegas;
+    for (let i = 0; i < 3; i++)
+    {
+        colegas.innerHTML += `<span>
+                                <img src="${data[i].imagem}" class="colega" id="${data[i].id}"></img>
+                                <p class="titulo">${data[i].nome}</p>
+                              </span>`
+    } 
+}
+JServer.open("GET", "http://localhost:3000/Data");
+JServer.send();

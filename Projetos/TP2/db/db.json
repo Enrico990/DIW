@@ -1,36 +1,22 @@
 {
   "Data": {
-    "login": "davipuddo",
-    "id": 161827752,
-    "node_id": "U_kgDOCaVLqA",
-    "avatar_url": "https://avatars.githubusercontent.com/u/161827752?v=4",
-    "gravatar_id": "",
-    "url": "https://api.github.com/users/davipuddo",
-    "html_url": "https://github.com/davipuddo",
-    "followers_url": "https://api.github.com/users/davipuddo/followers",
-    "following_url": "https://api.github.com/users/davipuddo/following{/other_user}",
-    "gists_url": "https://api.github.com/users/davipuddo/gists{/gist_id}",
-    "starred_url": "https://api.github.com/users/davipuddo/starred{/owner}{/repo}",
-    "subscriptions_url": "https://api.github.com/users/davipuddo/subscriptions",
-    "organizations_url": "https://api.github.com/users/davipuddo/orgs",
-    "repos_url": "https://api.github.com/users/davipuddo/repos",
-    "events_url": "https://api.github.com/users/davipuddo/events{/privacy}",
-    "received_events_url": "https://api.github.com/users/davipuddo/received_events",
-    "type": "User",
-    "site_admin": false,
-    "name": "Davi Ferreira Puddo",
-    "company": null,
-    "blog": "",
-    "location": "Belo Horioznte, MG, Brasil",
-    "email": null,
-    "hireable": null,
-    "bio": "Aluno de ciência da computação na PUC minas",
-    "twitter_username": null,
-    "public_repos": 4,
-    "public_gists": 0,
-    "followers": 5,
-    "following": 3,
-    "created_at": "2024-03-01T10:16:20Z",
-    "updated_at": "2024-06-21T16:25:21Z"
+
+    "colegas": [{
+
+      "id":"1",
+      "nome":"nome-1",
+      "imagem":"..\\public\\Colega1.jpg"
+    },
+    {
+      "id":"2",
+      "nome":"Jose Cota",
+      "imagem":"..\\public\\Jose.jpg"
+    },
+    {
+      "id":"3",
+      "nome":"Pedro Ferreira",
+      "imagem":"..\\public\\Pedro.jpg"
+    }
+  ]
   }
 }

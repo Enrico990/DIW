@@ -67,6 +67,8 @@ header button
 
 header button#home-btn
 {
+    color: var(--maincolor);
+    text-shadow: 1px 1px 2px #000;
     font-size: 34px;
 }
 
@@ -75,7 +77,7 @@ header span#seções button
     margin: 5px;
 }
 
-/* Conteudo principal 
+/* Pagina principal 
  * ============================================================
 */
 
@@ -118,8 +120,7 @@ section#perfil-info p.bio
 
 section#perfil img
 {
-    box-shadow: 1px 1px 6px #000;
-    border: 2px solid #1f1f1f;
+    border: 3px solid #333;
     border-radius: 8px;
     width: 250px;
     height: 250px;
@@ -129,14 +130,23 @@ section#perfil span.icons
 {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     gap: 20px;
+}
+
+section#perfil p#seguidores
+{
+    color: var(--maincolor);
+    font-size: 24px;
+    line-height: 0px;
+    text-shadow: 1px 1px 1px #000;
 }
 
 section#perfil span.icons i
 {
     color: var(--maincolor);
     font-size: 40px;
-    text-shadow: 3px 3px 5px #000;
+    text-shadow: 2px 2px 3px #000;
 }
 
 section#perfil span.icons i:hover
@@ -147,7 +157,6 @@ section#perfil span.icons i:hover
 /* Repositorios 
  * ============================================================
 */
-
 
 section#repositorios
 {
@@ -210,6 +219,42 @@ div.cards button a
     color: white;
 }
 
+/* Colegas de trabalho 
+ * ============================================================
+*/
+
+section#colegas
+{
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+section#colegas span
+{
+    justify-self: center;
+}
+
+section#colegas span p
+{
+    text-align: center;
+}
+
+section#colegas img
+{
+    border-radius: 8px;
+    border: 3px solid #333;
+    height: 200px;
+    width: 200px;
+}
+
+section#colegas p.titulo
+{
+    font-weight: bold;
+    text-shadow: 1px 1px 3px #000;
+    color: var(--maincolor);
+}
+
 /* media queries
  * ============================================================
 */
@@ -256,6 +301,14 @@ div.cards button a
     {
         width: 50vw;
         height: 20vh
+    }
+}
+
+@media screen and (max-width:750px)
+{
+    section#colegas 
+    {
+        grid-template-columns: repeat(1,1fr);
     }
 }
 
