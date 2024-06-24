@@ -3,19 +3,19 @@
 
     "colegas": [{
 
-      "id":"1",
+      "id":"0",
       "nome":"Antônio",
       "imagem":"..\\public\\assets\\images\\Antonio.jpg",
       "git":"https://github.com/AntonioDrumond"
     },
     {
-      "id":"2",
+      "id":"1",
       "nome":"Jean",
       "imagem":"..\\public\\assets\\images\\Jean.jpg",
       "git":"https://github.com/JeanCarlos0112"
     },
     {
-      "id":"3",
+      "id":"2",
       "nome":"Pedro",
       "imagem":"..\\public\\assets\\images\\Pedro.jpg",
       "git":""
