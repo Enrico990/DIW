@@ -58,7 +58,9 @@ function ShowGitReposData (data)
 // Variaveis para dados da API do Git
 var UserData = {};
 var ReposData = {};
-var LastUpdate = 0;
+var LastUpdate = 0; 
+
+var token = "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";
 
 // Requisicao de informacoes do usuario da API do GitHub
 function RequestUserGitApi()
@@ -69,6 +71,7 @@ function RequestUserGitApi()
         SaveLocalGit ();
     };
     UserXHR.open('GET', 'https://api.github.com/users/davipuddo');
+    UserXHR.setRequestHeader("Authorization", `token ${token}`);
     UserXHR.send();
 }
 
