@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalho Prático 2</title>
+    
+    <!--Stylesheets-->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/repos.css">
+
+    <!--Scripts-->
+    <script src="https://kit.fontawesome.com/13bad92f3e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <button id="home-btn">Davi Puddo</button>
+        <span id="seções">
+            <button id="um">Seção 1</button>
+            <button id="dois">Seção 2</button>
+            <button id="tres">Seção 3</button>
+        </span>
+    </header>    
+    <main>
+        <h1 class="titulo-da-seção"></h1>
+        <section id="page">
+
+            <p class="titulo">Descrição</p>
+            <p id="bio"></p>
+
+            <p class="titulo">Data de Criação</p>
+            <p id="data-de-criação">00/00/00</p>
+
+            <p class="titulo">Linguagem</p>
+            <p id="linguagem"></p>
+
+            <p class="titulo">Link de Acesso</p>
+            <a id="link" style="color: white"></a>
+
+            <p class="titulo">Tópicos</p>
+            <section id="topicos">
+
+            </section>
+
+            <section id="stats" title="Observadores">
+                <span id="watching">
+                    <p id="watching">0</p>
+                    <i class="fa-solid fa-user"></i>
+                </span>
+                <span id="stars" title="Estrelas">
+                    <p id="stars">0</p>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span id="forks" title="Forks">
+                    <p id="forks">0</p>
+                    <i class="fa-solid fa-code-fork"></i>
+                </span>
+                <span id="license" title="Licença">
+                    <p id="license"></p>
+                    <i class="fa-solid fa-id-card"></i>
+                </span>
+            </section>
+        </section>
+    </main>
+</body>
+<script src="assets/js/repos.js"></script>
+</html>

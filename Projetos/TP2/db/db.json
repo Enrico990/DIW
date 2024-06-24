@@ -3,22 +3,49 @@
 
     "colegas": [{
 
-      "id":"0",
-      "nome":"Antônio",
-      "imagem":"..\\public\\assets\\images\\Antonio.jpg",
-      "git":"https://github.com/AntonioDrumond"
+      "id": "0",
+      "nome": "Antônio",
+      "imagem": "..\\public\\assets\\images\\Antonio.jpg",
+      "git": "https://github.com/AntonioDrumond"
     },
     {
-      "id":"1",
-      "nome":"Jean",
-      "imagem":"..\\public\\assets\\images\\Jean.jpg",
-      "git":"https://github.com/JeanCarlos0112"
+      "id": "1",
+      "nome": "Jean",
+      "imagem": "..\\public\\assets\\images\\Jean.jpg",
+      "git": "https://github.com/JeanCarlos0112"
     },
     {
-      "id":"2",
-      "nome":"Pedro",
-      "imagem":"..\\public\\assets\\images\\Pedro.jpg",
-      "git":""
+      "id": "2",
+      "nome": "Pedro",
+      "imagem": "..\\public\\assets\\images\\Pedro.jpg",
+      "git": ""
+    }],
+
+    "carousel": [{
+
+      "id": "0",
+      "nome": "Scratch",
+      "imagem": "..\\public\\assets\\images\\Scratch.jpg"
+    },
+    {
+      "id": "1",
+      "nome": "Thinkercad",
+      "imagem": "..\\public\\assets\\images\\Thinkercad.jpg"
+    },
+    {
+      "id": "2",
+      "nome": "GitHub",
+      "imagem": "..\\public\\assets\\images\\GitHub.jpg"
+    },
+    {
+      "id": "3",
+      "nome": "Figma",
+      "imagem": "..\\public\\assets\\images\\Figma.jpg"
+    },
+    {
+      "id": "4",
+      "nome": "Codecademy",
+      "imagem": "..\\public\\assets\\images\\Codecademy.jpg"
     }]
   }
 }

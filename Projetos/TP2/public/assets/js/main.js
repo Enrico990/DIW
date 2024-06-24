@@ -1,5 +1,6 @@
 //853355 Davi Puddo
 
+
 // Constantes para API do GitHub
 const ProfileImage = document.querySelector("#imagem-de-perfil");
 const ProfileName = document.querySelector('p#nome');
@@ -40,10 +41,15 @@ function ShowGitReposData (data)
         ReposCards.innerHTML = null;
         for (let i = 0; i < ReposNum; i++)
         {
+            let link = window.location.origin + "/public/repos.html";
+            let url = new URL(link);
+            url.searchParams.append('id', i);
+            let NURL = url.toString();
+
             ReposCards.innerHTML += `<div class="cards">
                                         <p class="titulo">${data[i].name}</p>
                                         <p class="descricao">${data[i].description}</p>
-                                        <button><a href="${data[i].html_url}">Visitar</a></button>
+                                        <button><a href="${NURL}">Visitar</a></button>
                                      </div>`
         }
     }
@@ -103,7 +109,6 @@ else
     RequestRepoGitApi();
     SaveLocalGit();     // Salva-los localmente
     setTimeout(ReadLocalGit, 300);
-    ReadLocalGit();     // Ler dados locais
 }
 
 // Ler dados do local storage
@@ -198,18 +203,70 @@ email.addEventListener('click', function(){
     window.location.href = EmailUrl;
 })
 
+// Json server
 // Colegas de trabalho
 const colegas = document.querySelector('#colegas');
+JServerData = {};
+
 var JServer = new XMLHttpRequest();
 JServer.onload = function(event){
-    let data = JSON.parse(event.target.response).colegas;
-    for (let i = 0; i < 3; i++)
-    {
-        colegas.innerHTML += `<span id="colega-${data[i].id}">
-                                <img src="${data[i].imagem}" class="colega"></img>
-                                <a href="${data[i].git}"><p class="titulo">${data[i].nome}</p></a>
-                              </span>`
-    } 
+    JServerData = JSON.parse(event.target.response);
+    ShowColegas();
+    SugestedImg.src = JServerData.carousel[0].imagem;
+    SugestedImg.setAttribute('title', JServerData.carousel[0].nome);
 }
+JServer.onerror =  function () {console.log('Json server nao respondeu!')};
 JServer.open("GET", "http://localhost:3000/Data");
 JServer.send();
+
+function ShowColegas ()
+{
+    let data = JServerData.colegas;
+    for (let i = 0; i < 3; i++)
+        {
+            colegas.innerHTML += `<span id="colega-${data[i].id}">
+                                    <img src="${data[i].imagem}" class="colega" title="${data[i].nome}"></img>
+                                    <a href="${data[i].git}"><p class="titulo">${data[i].nome}</p></a>
+                                  </span>`
+        } 
+}
+
+// Carousel
+const next = document.querySelector('button#proximo');
+const back = document.querySelector('button#anterior');
+const SugestedImg = document.querySelector('#imagem-sugerida');
+
+var CIndex = 0;
+
+// Ir para a proxima imagem
+next.addEventListener('click', function(){
+    if (JSON.stringify(JServerData) != "{}")
+    {
+        data = JServerData.carousel;
+        CIndex++;
+        if (CIndex >= data.length)
+            {
+                CIndex = 0;
+                SugestedImg.src = data[CIndex].imagem;
+                SugestedImg.setAttribute('title', data[CIndex].nome);
+            }
+            SugestedImg.src = data[CIndex].imagem;
+            SugestedImg.setAttribute('title', data[CIndex].nome);
+    }
+})
+
+
+// Voltar para a imagem anterior
+back.addEventListener('click', function(){
+    if (JSON.stringify(JServerData) != "{}")
+    {
+        data = JServerData.carousel;
+        CIndex--;
+        if (CIndex < 0)
+        {
+            CIndex = data.length-1;
+        }
+        SugestedImg.src = data[CIndex].imagem;
+        SugestedImg.setAttribute('title', data[CIndex].nome);
+    }
+})

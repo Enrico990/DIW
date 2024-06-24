@@ -91,6 +91,7 @@ main h1.titulo-da-seção
 {
     font-size: 40px;
     padding-bottom: 10px;
+    padding-top: 20px;
     border-bottom: 3px solid white;
 }
 
@@ -128,6 +129,7 @@ section#perfil img
 
 section#perfil span.icons
 {
+    height: 0px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -140,22 +142,24 @@ span.icons span
     gap: 10px;
 }
 
-section#perfil p#seguidores
+span.icons p#seguidores
 {
+    align-self: center;
     color: var(--maincolor);
     font-size: 24px;
     line-height: 0px;
     text-shadow: 1px 1px 1px #000;
 }
 
-section#perfil span.icons i
-{
+ span.icons i
+{ 
+    align-self: center;
     color: var(--maincolor);
     font-size: 40px;
     text-shadow: 2px 2px 3px #000;
 }
 
-section#perfil span.icons i:hover
+section#perfil span.icons i:hover:not(i.fa-user)
 {
     cursor: pointer;
 }
@@ -225,6 +229,45 @@ div.cards button a
     color: white;
 }
 
+/* Conteudo sugerido 
+ * ============================================================
+*/
+
+div#content-page
+{
+    display: flex;
+    justify-content: center;
+}
+
+section#conteudo-sugerido
+{
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+}
+
+section#conteudo-sugerido img
+{
+    width: 750px;
+    height: 400px;
+}
+
+section#conteudo-sugerido button
+{
+    align-self: center;
+    border: none;
+    background-color: #222;
+    color: white;
+    text-shadow: 2px 2px #000;
+    font-size: 55px;
+}
+
+section#conteudo-sugerido button:hover
+{
+    filter: opacity(75%);
+}
+
+
 /* Colegas de trabalho 
  * ============================================================
 */
@@ -254,7 +297,7 @@ section#colegas img
     width: 200px;
 }
 
-section#colegas p.titulo
+section#colegas p.titulo, section#page p.titulo
 {
     font-weight: bold;
     text-shadow: 1px 1px 3px #000;
@@ -295,6 +338,22 @@ section#colegas p.titulo
     }
 }
 
+@media screen and (max-width:920px)
+{
+    main section#conteudo-sugerido img
+    {
+        width: 600px;
+    }
+}
+
+@media screen and (max-width:867px)
+{
+    main section#perfil
+    {
+        justify-content: center;
+    }
+}
+
 @media screen and (max-width:850px) 
 {
 
@@ -316,6 +375,11 @@ section#colegas p.titulo
     {
         grid-template-columns: repeat(1,1fr);
     }
+
+    main section#conteudo-sugerido img
+    {
+        width: 500px;
+    }
 }
 
 @media screen and (max-width:700px)
@@ -329,13 +393,19 @@ section#colegas p.titulo
     {
         padding: 24px 40px;
     }
+
+    main section#conteudo-sugerido img
+    {
+        width: 400px;
+        height: 300px;
+    }
 }
 
-@media screen and (max-width:867px)
+@media screen and (max-width:600px)
 {
-    main section#perfil
+    main section#conteudo-sugerido img
     {
-        justify-content: center;
+        width: 350px;
     }
 }
 
@@ -356,13 +426,50 @@ section#colegas p.titulo
         width: 50vw;
         height: 25vh;
     }
+
+    main section#conteudo-sugerido img
+    {
+        width: 300px;
+        height: 250px;
+    }
 }
 
-@media screen and (max-width:330px)
+@media screen and (max-width:470px)
+{
+    main section#conteudo-sugerido img
+    {
+        width: 250px;
+        height: 200px;
+    }
+
+    main section#conteudo-sugerido button
+    {
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width:400px)
+{
+    main section#conteudo-sugerido img
+    {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width:400px)
 {
     header button#home-btn
     {
         font-size: 22px;
+    }
+
+    main section#conteudo-sugerido img
+    {
+        width: 200px;
+    }
+    p, h1, a
+    {
+        font-size: 20px !important;
     }
 }
 
