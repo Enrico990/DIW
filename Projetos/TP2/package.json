@@ -1,5 +1,15 @@
 {
   "dependencies": {
     "json-server": "^1.0.0-beta.1"
-  }
+  },
+  "name": "json-server",
+  "version": "1.0.0-beta.1",
+  "main": "server.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "json-server --watch ./db/db.json --port 3000"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
