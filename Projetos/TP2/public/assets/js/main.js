@@ -20,6 +20,7 @@ function ShowGitUserData (data)
 {  
     if (data != undefined)
     {
+        console.log(data);
         ProfileImage.src = data.avatar_url;
         ProfileName.innerHTML = data.name;
         ProfileBio.innerHTML = data.bio;
@@ -60,7 +61,7 @@ var UserData = {};
 var ReposData = {};
 var LastUpdate = 0; 
 
-var token = "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";
+var token = "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";
 
 // Requisicao de informacoes do usuario da API do GitHub
 function RequestUserGitApi()
@@ -111,7 +112,7 @@ else
     RequestUserGitApi();
     RequestRepoGitApi();
     SaveLocalGit();     // Salva-los localmente
-    setTimeout(ReadLocalGit, 300);
+    setTimeout(ReadLocalGit, 500);
 }
 
 // Ler dados do local storage
@@ -203,7 +204,8 @@ Section3.addEventListener('click', function(){
 const email = document.querySelector('#email');
 
 email.addEventListener('click', function(){
-    window.location.href = EmailUrl;
+    navigator.clipboard.writeText(EmailUrl);
+    alert('Email copiado!');
 })
 
 // Json server
