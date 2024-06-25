@@ -439,7 +439,7 @@ section#colegas p.titulo, section#page p.titulo
     main section#conteudo-sugerido img
     {
         width: 250px;
-        height: 200px;
+        height: 150px;
     }
 
     main section#conteudo-sugerido button
@@ -453,6 +453,7 @@ section#colegas p.titulo, section#page p.titulo
     main section#conteudo-sugerido img
     {
         width: 200px;
+        height: 140px;
     }
 }
 

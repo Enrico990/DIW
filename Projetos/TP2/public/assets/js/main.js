@@ -49,7 +49,7 @@ function ShowGitReposData (data)
             ReposCards.innerHTML += `<div class="cards">
                                         <p class="titulo">${data[i].name}</p>
                                         <p class="descricao">${data[i].description}</p>
-                                        <button><a href="${NURL}">Visitar</a></button>
+                                        <button onclick="window.location.href='${NURL}'">Visitar</button>
                                      </div>`
         }
     }
