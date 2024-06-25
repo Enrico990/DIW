@@ -135,7 +135,7 @@ function ReadLocalGit ()
         }
     }
 }
-
+ 
 // Atualizar dados a cada 5 minutos
 setInterval(function(){
     if ((LastUpdate+300) <= parseInt((Date.now()/1000)))
